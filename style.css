@@ -1,0 +1,925 @@
+/* ================= imports ==============*/
+
+@import url('https://fonts.googleapis.com/css?family=Mulish:wght@200;300;400;800;900&display=swap');
+
+ 
+/*================== CSS variables ========== */
+:root
+{
+    --container-width:70%;
+
+/*Color*/
+--container-primary:#9859e3;
+--color-primary:rgba(152, 89, 227);
+--color-primary-accent: #542ac3;
+--color-secondary: #ff6397;
+--color-secondary--accent: #fe7ea9;
+--color-white: #ffffff;
+--color-black:rgb(0, 0, 0);
+--color-grey:#8491a5;
+--color-grey-rgb: 132, 145, 165;
+--primary-linear-gradient: linear-gradient(90deg,
+rgba(152, 89, 227, 1) 0%, rgba(84, 42, 195, 1) 100%);
+--secondary-linear-gradient: linear-gradient(90deg, rgba(255, 99, 151, 1) 0%,
+ rgba(254, 126, 169, 1) 100%);
+ --body-font:'Mulish','san-serif';
+}
+
+/*================ Base =================*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: var(--body-font);
+}
+html {
+   scroll-behavior:smooth;
+    overflow-x: hidden;
+    }
+    a
+    {
+    text-decoration: none;
+    }
+    ul {
+    list-style: none;
+    }
+/*=================== Layouts ================*/
+.container
+{
+width: var(--container-width);
+
+margin: 0 auto;
+}
+
+/*==================== Reusable Classes & Selectors =============== */
+section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    }
+    .btn {
+    display: block;
+    padding: 10px 30px;
+    margin: 20px 0 20px 0;
+    cursor: pointer;
+    border-radius: 50px;
+
+    width: fit-content;
+    }
+    
+    .btn-primary
+    {
+      background: var(--primary-linear-gradient);
+    
+      color: var(--color-white);
+    }
+    .btn-secondary 
+{
+background: var(--secondary-linear-gradient);
+color: var(--color-white);
+}
+ 
+.tag
+{
+ display: block;
+
+ padding: 3px 15px;
+
+ margin: 20px 0 20px 0;
+
+ cursor: pointer;
+
+ border-radius: 50px;
+
+width: fit-content;
+
+ color: var(--color-white);
+
+ text-transform: uppercase;
+
+ font-size: 0.8rem;
+
+font-weight: 600;
+}
+
+/*====================== Header ==================== */
+header{
+
+ background: var(--primary-linear-gradient);
+ 
+ 
+ }
+nav {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+height: 5rem;
+
+color: var(--color-white);
+
+}
+.sticky
+{
+    position: fixed;
+    top:0;
+    width:100%;
+    padding-left: 15% !important;
+    padding-right: 15% !important;
+    z-index:999;
+    background: var(--color-primary-accent);
+    padding: 2rem;
+    box-shadow: rgba(0,0,0,0.1)0px 4px 6px -1px, rgba(0,0,0,0.06) 0px 2px 4px -1px;
+}
+.nav__logo {
+    
+    margin-left: -80px;
+    color: var(--color-secondary);
+
+}
+.nav__menu {
+    display: flex; /* Enable flexbox for this container */
+    gap: 3rem; /* Set space between items */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: flex-end; /* Align the menu to the right side */
+}
+
+.nav__link {
+
+    font-size: 20px;
+    color: var(--color-white); /* Default color */
+    transition: color 0.3s ease; /* Smooth transition for the color change */
+    position: relative; /* Required for positioning the underline */
+}
+
+/* Hover effect */
+.nav__link:hover {
+    color: red; /* Change text color to red on hover */
+}
+
+/* Underline animation */
+.nav__link::after {
+    content: ''; /* Create an empty pseudo-element for the underline */
+    position: absolute; /* Position the underline at the bottom */
+    bottom: 0; /* Align it to the bottom of the text */
+    left: 0;
+    width: 0; /* Initially no underline width */
+    height: 2px; /* Thickness of the underline */
+    background-color: red; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for expanding the underline */
+}
+
+/* Expand the underline when hovered */
+.nav__link:hover::after {
+    width: 100%; /* Expand the underline to full width */
+}
+.mb-show
+{
+    display: none; 
+}
+.show
+{
+    right:0;
+}
+/*======================== Home ===================*/
+.home
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.home__data, .home__image
+{
+    flex:50%;
+}
+.home__data-title
+{
+    color:var(--color-white);
+    font-size: 2.5rem;
+}
+.home__data-title span{
+    font-weight: 200;
+}
+.home__data-desc
+{
+    margin-top:2rem;
+    color:var(--color--white);
+    line-height:2;
+    
+}
+.home__image img
+{
+    width:100%;
+    height:auto;
+}
+/*===================== About ======================*/
+.about
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:2rem;
+}
+.about__container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:2.5rem;
+}
+.about__image img{
+    max-width: 100%;
+    height:auto;
+    border-radius:100
+}
+.about__tag
+{
+    color: #ff6397;
+   
+    background-color: rgba(var(--color-primary-rgb),0.2);
+}
+.about__data-title
+{
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+.about__data-desc
+{
+    font-size:0.8rem;
+    padding: 100 0 10px 0;
+}
+.about__data-quote
+{
+    font-size: 1.2rem;
+    color:var(--color-grey);
+    padding:10px 0 10px 0;
+}
+.about__data-quote i
+{
+    font-size:2.5rem;
+    color:var(--color-secondary);
+}
+/*====================== Why Choose Us =================== */
+.whychooseus
+{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.whychooseus__tag span{
+    color: #ff6397;
+    background-color: rgba(var(--color-primary-rgb),0.2);
+    margin:0 auto;
+}
+.whychooseus__title
+{
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center;
+    padding-top: 1rem;
+}
+.whychooseus__data
+{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.whychooseus__card
+{
+    box-shadow: rgba(0,0,0,0.1)0px 4px 12px;
+    margin:20px;
+    padding:30px;
+    text-align: center;
+    
+}
+.whychooseus__card i{
+    display: inline-block;
+    font-size: 3rem;
+    padding:15px;
+    color: #ff6397;
+}
+.whychooseus__card-title
+{
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.whychooseus__card-desc
+{
+    font-size: 0.8rem;
+    padding:10px 0px 10px 0;
+    color:var(--color-grey);
+}
+/*============================= Services ==================*/
+.services
+{
+    background: var(--primary-linear-gradient);
+    color: #ff6397;
+}
+.services__tag
+{
+  background-color: rgba(227, 158, 158, 0.2);
+}
+.services__title
+{
+    font-size: 2.5rem;
+    font-weight: 200;
+    color:var(--color-white);
+}
+.services__data{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom:2rem;
+}
+.services__single
+{
+    display: flex;
+    gap:1.5rem;
+    padding:20px;
+    flex: 22%;
+    align-items: center;
+}
+.services__single{
+    font-size: 2rem;
+    color:var(--secondary-linear-gradient);
+}
+.services-desc
+{
+    font-size: 0.8rem;
+    padding:10px 2 10px 0;
+    color:var(--color-white);
+}
+.services__buttons
+{
+    display: flex;
+    justify-content: flex-start;
+    gap:2rem;
+}
+/*===================== Testimonials ================*/
+.testimonial__tag span{
+    
+    background-color: rgba(var(--color-primary-rgb),0.2);
+    margin: auto;
+    color: #ff6397;
+}
+.testimonial__title{
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: 200;
+    text-align: right;
+
+}
+.testimonial__data
+{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.testimonial__single
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary-linear-gradient);
+    border-radius: 10px;
+    padding:4rem 8rem;
+}
+.testimonial__img
+{
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: rgba(0,0,0,0.16)0px 3px 6px, rgba(0,0,0,0.23)0px 3px 6px;
+}
+.testimonial__text
+{
+    font-size: 1.2rem;
+    color:var(--color-white);
+    padding: 20px 0 20px 0;
+    text-align: center;
+}
+.testimonial__name
+{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color:var(--color-white);
+}
+.testimonial__comapny
+{
+    font-size:0.8rem;
+    padding:10px 0 10px 0;
+    color:var(--color-white);
+}
+/* swiper silder css*/
+.swiper
+{
+    width: 100%;
+    height: 100%;
+   
+}
+.swiper-slide 
+{
+    
+     text-align: center;
+    
+     font-size: 18px;
+    
+
+     display: -webkit-box;
+    
+    display: -ms-flexbox;
+    
+    display: -webkit-flex;
+    
+    display: flex;
+    
+    -webkit-box-pack: center;
+    
+    -ms-flex-pack: center;
+    
+    -webkit-justify-content: center;
+    
+    justify-content: center;
+    
+    -webkit-box-align: center;
+    
+    -ms-flex-align: center;
+    
+    -webkit-align-items: center;
+    
+    align-items: center;
+    
+}
+.swiper-button-prev,
+.swiper-button-next
+{
+    color:var(--color-white);
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    height: 40px;
+    width:40px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after{
+    font-size: 1.2rem;
+}
+.swiper-pagniation
+{
+    bottom:85px !important;
+}
+.swiper-pagniation-bullet
+{
+    background-color: var(--color-grey);
+    opacity: 1;
+}
+.swiper-pagniation-bullet-active
+{
+    background-color: var(--color-white) !important;
+}
+/*========================= Contact Us ============================*/
+.contact
+{
+    background: var(--primary-linear-gradient);
+}
+.contact__tag
+{
+    color:rgba(255,255,25,0.2);
+    color:var(--color-white);
+    text-align: center;
+}
+.contact__title
+{
+    font-size: 2.5rem;
+    font-weight: 200;
+    color:var(--color-white);
+
+}
+.contact__form
+{
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+    align-items: center;
+    padding: 20px 0;
+}
+.contact__form>input:not(.btn)
+{
+    height: 50px;
+}
+.contact__form>textarea
+{
+    resize:none;
+    padding-top: 10px;
+}
+.contact__form>input:not(.btn),
+.contact__form>textarea
+{
+    width:40%;
+    border:1px solid var(--color-secondary);
+    border-radius: 25px;
+    outline:none;
+    text-indent: 10px;
+}
+.contact__button-wrapper
+{
+    display: flex;
+    justify-content: flex-end;
+    width:40%;
+}
+.contact__btn{
+    border: none;
+}
+/*======================== Footer ======================== */
+.footer__container
+{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+.footer__container, 
+.footer__navigation,
+.footer__links
+{
+    display: flex;
+    justify-content: space-evenly;
+    gap:5rem;
+    flex: 25%;
+}
+.footer__logo span{
+   
+    color:var(--color-secondary);
+}
+.footer__text
+{
+    padding-top: 2rem;
+}
+.footer__navigation h2,
+.footer__contact h2{
+   
+    font-weight: 300;
+    padding-bottom: 1rem;
+}
+.footer__links{
+    flex-direction: column;
+    gap:0.5rem;
+}
+.footer__links >a{
+    
+    color:var(--color-black);
+}
+.footer__contact{
+    
+    display: flex;
+    flex-direction:column;
+    gap:1.2rem;
+}
+
+.footer__social
+{  display: flex;
+    gap: 20px;
+    padding-right: 10px;
+    color:var(--color-secondary);
+}
+.footer__copyright
+{
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 10px;
+    border-top:  1px solid var(--color-grey);
+}
+/*====================== Responsive Design ======================*/
+
+/*=============== mobile devices ================*/
+@media screen and (max-width: 480px) {
+    .nav__menu
+    {
+        position:fixed;
+        right:-80%;
+        width:80%;
+        height: 100%;
+        z-index:1;
+        flex-direction: column;
+        justify-content: flex-start;
+        background:#3b1f86;
+        top:5rem;
+        padding:20px;
+        transition: .5s;
+    }
+
+    .show{
+        right:0;
+    }
+    .mb-show{
+        display: inline-block;
+        color:var(--color-white);
+        border: 1px solid var(--color-white);
+        padding:5px 10px;
+        cursor:pointer;
+    }
+    .nav__link {
+        font-size: 20px;
+        color: var(--color-white); /* Default color */
+        transition: color 0.3s ease; /* Smooth transition for the color change */
+        position: relative; /* Required for positioning the underline */
+    }
+    
+    /* Hover effect */
+    .nav__link:hover {
+        color: red; /* Change text color to red on hover */
+    }
+    
+    /* Underline animation */
+    .nav__link::after {
+        content: ''; /* Create an empty pseudo-element for the underline */
+        position: absolute; /* Position the underline at the bottom */
+        bottom: 0; /* Align it to the bottom of the text */
+        left: 0;
+        width: 0; /* Initially no underline width */
+        height: 2px; /* Thickness of the underline */
+        background-color: red; /* Color of the underline */
+        transition: width 0.3s ease; /* Smooth transition for expanding the underline */
+    }
+    
+    /* Expand the underline when hovered */
+    .nav__link:hover::after {
+        width: 100%; /* Expand the underline to full width */
+    }
+    
+    .home{
+        flex-direction: column-reverse;
+    }
+    .home__data-title{
+        font-size: 2rem;
+    }
+    .about__container{
+        flex-direction: column-reverse;
+    }
+    .about__data-title{
+        font-size: 2rem;
+    }
+    .whychooseus__title
+    {
+        font-size: 2rem;
+    }
+    .whychooseus__data{
+        flex-direction: column;
+        row-gap:2rem;
+    }
+    .services__title{
+        font-size: 2rem;
+    }
+    .services__data{
+        flex-direction: column;
+    }
+    .services__buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+    .services__buttons a{
+        margin: 0;
+    }
+    .testimonial__title{
+        font-size: 2rem;
+    }
+    .contact__title{
+        font-size: 2rem;
+    }
+    .contact__form input:not(.btn),
+    .contact__form textarea
+    {
+        width:100% !important;
+    }
+
+    .footer__container,
+    .footer__navigation,
+    .footer__links
+    {
+        flex-direction: column;
+    }
+}
+
+/*===================== ipads, tablets ============================*/
+@media screen and (max-width: 768px) {
+    .nav__menu
+    {
+        position:fixed;
+        right:-80%;
+        width:80%;
+        height: 100%;
+        z-index:1;
+        flex-direction: column;
+        justify-content: flex-start;
+        background:#3b1f86;
+        top:5rem;
+        padding:20px;
+        transition: .5s;
+    }
+
+    .show{
+        right:0;
+    }
+    .mb-show{
+        display: inline-block;
+        color:var(--color-white);
+        border: 1px solid var(--color-white);
+        padding:5px 10px;
+        cursor:pointer;
+    }
+    .nav__link {
+        font-size: 20px;
+        color: var(--color-white); /* Default color */
+        transition: color 0.3s ease; /* Smooth transition for the color change */
+        position: relative; /* Required for positioning the underline */
+    }
+    
+    /* Hover effect */
+    .nav__link:hover {
+        color: red; /* Change text color to red on hover */
+    }
+    
+    /* Underline animation */
+    .nav__link::after {
+        content: ''; /* Create an empty pseudo-element for the underline */
+        position: absolute; /* Position the underline at the bottom */
+        bottom: 0; /* Align it to the bottom of the text */
+        left: 0;
+        width: 0; /* Initially no underline width */
+        height: 2px; /* Thickness of the underline */
+        background-color: red; /* Color of the underline */
+        transition: width 0.3s ease; /* Smooth transition for expanding the underline */
+    }
+    
+    /* Expand the underline when hovered */
+    .nav__link:hover::after {
+        width: 100%; /* Expand the underline to full width */
+    }
+    
+    
+    .home{
+        flex-direction: column-reverse;
+    }
+    .home__data-title{
+        font-size: 2rem;
+    }
+    .about__container{
+        flex-direction: column-reverse;
+    }
+    .about__data-title{
+        font-size: 2rem;
+    }
+    .whychooseus__title
+    {
+        font-size: 2rem;
+    }
+    .whychooseus__data{
+        flex-direction: column;
+        row-gap:2rem;
+    }
+    .services__title{
+        font-size: 2rem;
+    }
+    .services__data{
+        flex-direction: column;
+    }
+    .services__buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+    .services__buttons a{
+        margin: 0;
+    }
+    .testimonial__title{
+        font-size: 2rem;
+    }
+    .contact__title{
+        font-size: 2rem;
+    }
+    .contact__form input:not(.btn),
+    .contact__form textarea
+    {
+        width:100% !important;
+    }
+
+    .footer__container,
+    .footer__navigation,
+    .footer__links
+    {
+        flex-direction: column;
+    }
+}
+
+/*======================= small screen, laptops ==========================*/
+@media screen and (max-width: 1024px) {
+    .nav__menu
+    {
+        position:fixed;
+        right:-80%;
+        width:80%;
+        height: 100%;
+        z-index:1;
+        flex-direction: column;
+        justify-content: flex-start;
+        background:#3b1f86;
+        top:5rem;
+        padding:20px;
+        transition: .5s;
+    }
+
+    .show{
+        right:0;
+    }
+    .mb-show{
+        display: inline-block;
+        color:var(--color-white);
+        border: 1px solid var(--color-white);
+        padding:5px 10px;
+        cursor:pointer;
+    }
+    .nav__link {
+        font-size: 20px;
+        color: var(--color-white); /* Default color */
+        transition: color 0.3s ease; /* Smooth transition for the color change */
+        position: relative; /* Required for positioning the underline */
+    }
+    
+    /* Hover effect */
+    .nav__link:hover {
+        color: red; /* Change text color to red on hover */
+    }
+    
+    /* Underline animation */
+    .nav__link::after {
+        content: ''; /* Create an empty pseudo-element for the underline */
+        position: absolute; /* Position the underline at the bottom */
+        bottom: 0; /* Align it to the bottom of the text */
+        left: 0;
+        width: 0; /* Initially no underline width */
+        height: 2px; /* Thickness of the underline */
+        background-color: red; /* Color of the underline */
+        transition: width 0.3s ease; /* Smooth transition for expanding the underline */
+    }
+    
+    /* Expand the underline when hovered */
+    .nav__link:hover::after {
+        width: 100%; /* Expand the underline to full width */
+    }
+    
+    
+    .home{
+        flex-direction: column-reverse;
+    }
+    .home__data-title{
+        font-size: 2rem;
+    }
+    .about__container{
+        flex-direction: column-reverse;
+    }
+    .about__data-title{
+        font-size: 2rem;
+    }
+    .whychooseus__title
+    {
+        font-size: 2rem;
+    }
+    .whychooseus__data{
+        flex-wrap:wrapsss;
+        row-gap:2rem;
+    }
+    .services__title{
+        font-size: 2rem;
+    }
+    .services__single{
+        flex:50%;
+    }
+    .services__buttons{
+        justify-content: center;
+        align-items: center;
+    }
+    .services__buttons a{
+        margin: 0;
+    }
+    .testimonial__title{
+        font-size: 2rem;
+    }
+    .contact__title{
+        font-size: 2rem;
+    }
+    .contact__form input:not(.btn),
+    .contact__form textarea
+    {
+        width:100% !important;
+    }
+
+    .footer__container,
+    .footer__navigation,
+    .footer__links
+    {
+        flex-direction: column;
+    }
+}
